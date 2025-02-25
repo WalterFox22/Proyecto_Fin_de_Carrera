@@ -6,6 +6,7 @@ const LandingPage =()=>{
     const navigate=useNavigate()
     return(
         <>
+        <h1>hadbjcvhshgcs</h1>
         <Button variant="primary" onClick={()=>navigate('/Hola')}>INGRESAR</Button>
         </>
     )
