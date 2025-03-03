@@ -7,7 +7,7 @@ const LandingPage =()=>{
     return(
         <>
         <h1>hadbjcvhshgcs</h1>
-        <Button variant="primary" onClick={()=>navigate('/Hola')}>INGRESAR</Button>
+        <Button variant="primary" onClick={()=>navigate('/login')}>INGRESAR</Button>
         </>
     )
 }
