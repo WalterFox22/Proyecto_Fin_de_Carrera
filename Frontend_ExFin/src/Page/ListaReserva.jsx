@@ -1,16 +1,15 @@
 import { Col, Container, Row } from "react-bootstrap";
-
 import FormularioReserva from "./FormularioReserva";
 
-const Vehiculo = () => {
+const ListarReservas = () => {
   return (
     <>
-      <Container fluid className="p-3">
+         <Container fluid className="p-3">
             {/* Encabezado */}
             <div className="text-center mb-4">
-                <h1>Registro de Reserva</h1>
+                <h1>Listar Reserva</h1>
                 <hr />
-                <p>Este módulo te permite Registrar las reservas</p>
+                <p>Este módulo te permite visualizar la reserva.</p>
             </div>
 
             {/* Contenido principal */}
@@ -20,8 +19,9 @@ const Vehiculo = () => {
                 </Col>
             </Row>
         </Container>
-    </>
+        
+      </>
   );
 };
 
-export default Vehiculo;
+export default ListarReservas;

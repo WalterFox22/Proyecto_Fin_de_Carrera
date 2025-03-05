@@ -74,6 +74,24 @@ const VehiculosProvider = ({children})=>{
             console.log(error);
         }
     }
+    const Reserva = async(id) => {
+        const token = localStorage.getItem('token')
+        try {
+            const token = localStorage.getItem('token')
+            const url = `${import.meta.env.VITE_BACKEND_DESPLEGADO}/reservas/listReserva`
+            const options = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            }
+            const respuesta = await axios.get(url, options)
+            setVehiculos(respuesta.data, ...reservas)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
 
     return(
         <VehiculosContext.Provider value={
@@ -86,7 +104,7 @@ const VehiculosProvider = ({children})=>{
                 setVehiculos,
                 registrarVehiculos,
                 eliminarVehiculos,
-                cambiarVehiculos
+                Reserva
             }
         }>
             {children}

@@ -103,7 +103,7 @@ const Dashboard = () => {
                 as={Link}
                 to="/dashboard/vehiculos"
                 className={
-                  urlActual === "/dashboard/hols"
+                  urlActual === "/dashboard/listar-vehiculos"
                     ? "active text-light bg-secondary rounded p-2"
                     : "text-light"
                 }
@@ -113,9 +113,9 @@ const Dashboard = () => {
 
               <Nav.Link
                 as={Link}
-                to="/dashboard/vehiculos"
+                to="/dashboard/listar-reservas"
                 className={
-                  urlActual === "/dashboard/holaaa"
+                  urlActual === "/dashboard/listar-reservas"
                     ? "active text-light bg-secondary rounded p-2"
                     : "text-light"
                 }

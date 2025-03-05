@@ -8,6 +8,8 @@ import { PrivateRoute } from "./Routes/PrivateRoutes";
 import Vehiculo from "./Page/Vehiculos";
 import Perfil from "./Page/Perfil";
 import Reservas from "./Page/Reservas";
+import ListarReservas from "./Page/ListaReserva";
+import ListarVehiculo from "./Page/ListarVehiculos";
 
 function App() {
   return (
@@ -31,6 +33,10 @@ function App() {
                     <Route path="clientes" element={<Clientes />} />
                     <Route path="vehiculos" element={<Vehiculo />} />
                     <Route path="reservas" element={<Reservas />} />
+                    <Route path="listar-vehiculos" element={<ListarVehiculo />} />
+                    <Route path="listar-reservas" element={<ListarReservas />} />
+
+
                   </Route>
                 </Routes>
                 </PrivateRoute>
