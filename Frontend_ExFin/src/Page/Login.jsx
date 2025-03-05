@@ -3,8 +3,8 @@ import "../Styles/LoginStyle.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import { BsArrowLeftSquareFill } from "react-icons/bs";
 import AuthContext from "../Context/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
@@ -23,33 +23,31 @@ const Login = () => {
   };
   // Paso 3
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const url = `${import.meta.env.VITE_BACKEND_URL}/login`;
-    try {
-      const respuesta = await axios.post(url, form);
+      e.preventDefault()
+      const url = `${import.meta.env.VITE_BACKEND_DESPLEGADO}/login`
+      try {
+          //const url = `${import.meta.env.VITE_BACKEND_URL}login`
+          const respuesta= await axios.post(url,form)
 
-      localStorage.setItem("token", respuesta.data.token);
+          localStorage.setItem('token',respuesta.data.token)
 
-      localStorage.setItem("rol", respuesta.data.rol); //// setea el rol al momento deingresar
+          localStorage.setItem('rol',respuesta.data.rol) //// setea el rol al momento deingresar 
 
-      setAuth(respuesta.data);
-      console.log(respuesta);
-      toast.success(respuesta.data.msg); // Mostrar mensaje de éxito
-      navigate("/dashboard");
-    } catch (error) {
-      toast.error(error.response.data.msg);
-    }
+          setAuth(respuesta.data)
+          console.log(respuesta);
+          toast.success(respuesta.data.msg); // Mostrar mensaje de éxito
+          navigate('/dashboard')
+
+      } catch (error) {
+          toast.error(error.response.data.msg)
+      }
+  
   };
 
   return (
     <>
       <ToastContainer />
       <div id="login-body">
-        {/* Icono para volver atrás */}
-        <BsArrowLeftSquareFill
-          className="back-icon"
-          onClick={() => navigate("/")}
-        />
         <div id="login-glass-container">
           <div id="login-box">
             <h2 id="login-title">LOGIN</h2>

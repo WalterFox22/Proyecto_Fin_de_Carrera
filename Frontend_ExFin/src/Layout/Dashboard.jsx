@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { Link, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
-import {Container,Row,Col,Navbar,Nav,Image,Button,} from "react-bootstrap";
-import LogoAdmin from '../assets/Image/Owner.avif'
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { Container, Row, Col, Navbar, Nav, Image, Button } from "react-bootstrap";
+import LogoAdmin from '../assets/Image/Owner.avif';
 import AuthContext from "../Context/AuthProvider";
 
 const Dashboard = () => {
   const location = useLocation();
   const urlActual = location.pathname;
   const { auth } = useContext(AuthContext);
-  const autenticado = localStorage.getItem("token");
+
   return (
     <>
       <Container
@@ -31,7 +31,7 @@ const Dashboard = () => {
               overflowY: "auto",
             }}
           >
-            <h2 className="text-center fw-bold">Tuti</h2>
+            <h2 className="text-center fw-bold">Vehículos ESFOT</h2>
             <div className="text-center my-4">
               <Image
                 src={LogoAdmin}
@@ -50,7 +50,6 @@ const Dashboard = () => {
                 className="text-slate-400 text-center my-4 text-sm"
                 style={{ color: "white" }}
               >
-                {" "}
                 Rol - {auth?.rol}
               </p>
             </div>
@@ -65,7 +64,7 @@ const Dashboard = () => {
                     : "text-light"
                 }
               >
-                Productos
+                Perfil
               </Nav.Link>
               <Nav.Link
                 as={Link}
@@ -76,19 +75,54 @@ const Dashboard = () => {
                     : "text-light"
                 }
               >
-                Cliente
+                Registrar Cliente
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/dashboard/pedidos"
+                to="/dashboard/vehiculos"
                 className={
-                  urlActual === "/dashboard/pedidos"
+                  urlActual === "/dashboard/vehiculos"
                     ? "active text-light bg-secondary rounded p-2"
                     : "text-light"
                 }
               >
-                Pedidos
+                Registrar Vehículos
               </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/dashboard/reservas"
+                className={
+                  urlActual === "/dashboard/reservas"
+                    ? "active text-light bg-secondary rounded p-2"
+                    : "text-light"
+                }
+              >
+                Registrar Reservas
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/dashboard/vehiculos"
+                className={
+                  urlActual === "/dashboard/hols"
+                    ? "active text-light bg-secondary rounded p-2"
+                    : "text-light"
+                }
+              >
+                Listar Vehiculos
+              </Nav.Link>
+
+              <Nav.Link
+                as={Link}
+                to="/dashboard/vehiculos"
+                className={
+                  urlActual === "/dashboard/holaaa"
+                    ? "active text-light bg-secondary rounded p-2"
+                    : "text-light"
+                }
+              >
+                Listar Reservas
+              </Nav.Link>
+              
             </Nav>
           </Col>
 
@@ -130,9 +164,7 @@ const Dashboard = () => {
               className="flex-grow-1 p-4 bg-light"
               style={{ minHeight: "calc(100vh - 56px)", overflow: "auto" }}
             >
-              {/** 
-              {autenticado ? <Outlet /> : <Navigate to="/login" />}
-              */}
+              <Outlet />
             </div>
           </Col>
         </Row>

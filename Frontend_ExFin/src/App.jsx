@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LandingPage from "./Page/LandingPage";
 import Login from "./Page/Login";
 import { AuthProvider } from "./Context/AuthProvider";
 import Auth from "./Layout/Auth";
 import Dashboard from "./Layout/Dashboard";
-import Pedidos from "./Page/Pedidos";
-import Productos from "./Page/Productos";
 import Clientes from "./Page/Clientes";
 import { PrivateRoute } from "./Routes/PrivateRoutes";
+import Vehiculo from "./Page/Vehiculos";
+import Perfil from "./Page/Perfil";
+import Reservas from "./Page/Reservas";
 
 function App() {
   return (
@@ -15,8 +15,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route index element={<LandingPage />} />
-
+            <Route index element={<Login />} />
             <Route path="/" element={<Auth />}>
               <Route path="login" element={<Login />} />
               <Route path="prueba" element={<Dashboard />} />
@@ -26,17 +25,17 @@ function App() {
               path="dashboard/*"
               element={
                 <PrivateRoute>
-                  <Routes>
-                    <Route element={<Dashboard />}>
-                      <Route index element={<Productos />} />
-                      <Route path="clientes" element={<Clientes />} />
-                      <Route path="pedidos" element={<Pedidos />} />
-                    </Route>
-                  </Routes>
+                <Routes>
+                  <Route element={<Dashboard />}>
+                    <Route index element={<Perfil />} />
+                    <Route path="clientes" element={<Clientes />} />
+                    <Route path="vehiculos" element={<Vehiculo />} />
+                    <Route path="reservas" element={<Reservas />} />
+                  </Route>
+                </Routes>
                 </PrivateRoute>
               }
             />
-            
           </Routes>
         </AuthProvider>
       </BrowserRouter>
