@@ -12,7 +12,7 @@ const VerVehiculo= ()=>{
     const listarPacientes = async () => {
         try {
             const token = localStorage.getItem('token')
-            const url = `${import.meta.env.VITE_BACKEND_DESPLEGADO}/reserva/listReserva`
+            const url = `https://backend-exfinal.onrender.com/api/reserva/listReserva`
             const options = {
                 headers: {
                     'Content-Type': 'application/json',

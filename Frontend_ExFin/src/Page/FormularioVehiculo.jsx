@@ -35,7 +35,7 @@ const FormularioVehiculo = () => {
     onSubmit: async (values) => {
       try {
         const token = localStorage.getItem("token");
-        const url = `${import.meta.env.VITE_BACKEND_DESPLEGADO}/vehiculo/registroVehiculo`;
+        const url = `https://backend-exfinal.onrender.com/api/vehiculo/registroVehiculo`;
         const options = {
           headers: {
             method: 'POST',

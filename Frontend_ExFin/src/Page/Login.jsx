@@ -24,7 +24,7 @@ const Login = () => {
   // Paso 3
   const handleSubmit = async (e) => {
       e.preventDefault()
-      const url = `${import.meta.env.VITE_BACKEND_DESPLEGADO}/login`
+      const url = `https://backend-exfinal.onrender.com/api/login`
       try {
           //const url = `${import.meta.env.VITE_BACKEND_URL}login`
           const respuesta= await axios.post(url,form)

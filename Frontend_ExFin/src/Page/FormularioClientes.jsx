@@ -37,7 +37,7 @@ const FormularioClientes = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const token = localStorage.getItem("token");
-      const url = `${import.meta.env.VITE_BACKEND_DESPLEGADO}/cliente/registerClientes`;
+      const url = `https://backend-exfinal.onrender.com/api/cliente/registerClientes`;
       const options = {
         headers: {
           "Content-Type": "application/json",
